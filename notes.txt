@@ -1,0 +1,15 @@
+// backend
+
+body parser - sending post req
+cors - enable cross origin req
+express - nodejs framework
+mongoose - create models to the posts
+nodemon - no need manually start the server
+
+// frontend
+
+axios - make API req
+moment - to work with date and time
+react-file-base64  - to work with files
+redux
+redux-thunk - asynchronous actions with redux
