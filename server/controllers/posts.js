@@ -6,20 +6,21 @@ export const getPosts = async (req,res) => {
       const posts = await PostsModel.find();
       res.status(200).json(posts);
     } catch (error) {
-        res.status(404).json({message: error.message});
+        res.sendstatus(404).json({message: error.message});
     }
 } 
 
-export const createPosts = async (req,res) => {
-    const Post = req.body;
 
-    const newPost = new PostsModel(Post);
+export const createPosts = async (req,res) => {
+    const { title, message, selectedFile, creator, tags } = req.body;
+    const newPost = new PostsModel({ title, message, selectedFile, creator, tags })
 
     try {
         await newPost.save();
-        res.send(201).json(newPost);
+        res.status(201).json(newPost);
 
     } catch (error) {
-        res.status(409).json({message: error.message});
+        console.log(error);
     }
+    
 }

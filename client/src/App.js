@@ -1,14 +1,21 @@
+import React, {useEffect} from 'react';
 import {Container, AppBar, Typography, Grow, Grid} from '@mui/material';
-import memories from './Images/memories.png'
+import {useDispatch} from 'react-redux';
 
+import memories from './Images/memories.png'
 import Posts from './Components/Posts/Posts';
 import Form from './Components/Form/Form';
-
 import useStyles from './Styles';
+import {getPosts} from './Actions/posts';
 
 function App() {
 
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getPosts());
+  },[dispatch])
 
   return (
     <div>
