@@ -8,6 +8,7 @@ import 'dotenv/config';
 
 //import routes
 import postRoutes from './routes/posts.js';
+import userRoutes from "./routes/user.js";
 
 const app = express();
 
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({limit:"30mb", extended:true}));
 app.use(cors());
 
 //declare routes
-app.use('/posts', postRoutes) //localhost:5000/posts/
+app.use('/posts', postRoutes); //localhost:5000/posts/
+app.use("/user", userRoutes);
 
 const PORT = process.env.PORT||5000;
 
